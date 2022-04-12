@@ -18,7 +18,6 @@ import TitleText from '../components/Header/TitleText'
 function ChallengeBuzaCreate() {
   const navigate = useNavigate()
   const [datalist, setDatalist] = useState([])
-  console.log('data:::', datalist)
   const { data: friendsList, isLoading } = useFriendData(navigate)
   const [selectFriends, setSelectFriends] = useState([])
   useEffect(() => {
@@ -49,7 +48,6 @@ function ChallengeBuzaCreate() {
         friendNickname: selectFriendNickName,
       },
     }).then(
-      (res) => console.log('challengeCreate', res),
       Swal.fire({
         title: '입력 완료!',
         text: '시작이 반!!',
@@ -76,7 +74,6 @@ function ChallengeBuzaCreate() {
     setError,
     formState: { errors },
   } = useForm()
-  console.log(watch())
 
   return (
     <Wrapper>
@@ -184,8 +181,6 @@ function ChallengeBuzaCreate() {
                             ...selectFriends.slice(0, targetIndex),
                             ...selectFriends.slice(targetIndex + 1),
                           ])
-
-                          console.log('datalist', datalist)
                         }}
                       >
                         <Close />
@@ -197,7 +192,6 @@ function ChallengeBuzaCreate() {
             </SelectedFriendWrapper>
             <FriendsList friendslength={selectFriends.length}>
               {datalist.map((da, idx) => {
-                console.log('datalist::', datalist)
                 return (
                   <Friends
                     style={{
@@ -232,8 +226,6 @@ function ChallengeBuzaCreate() {
                         ...datalist.slice(0, targetIndex),
                         ...datalist.slice(targetIndex + 1),
                       ])
-                      console.log(selectFriends.length)
-                      console.log('selectFriends', selectFriends)
                     }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center' }}>

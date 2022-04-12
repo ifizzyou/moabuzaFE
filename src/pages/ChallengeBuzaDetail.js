@@ -39,7 +39,6 @@ function ChallengeBuzaDetail() {
       confirmButtonText: '넵 포기!',
       cancelButtonText: '취소!',
     }).then((result) => {
-      console.log(result)
       if (result.isConfirmed) {
         request({
           url: `/challenge/doing`,
@@ -64,8 +63,6 @@ function ChallengeBuzaDetail() {
   }
 
   const challengeData = data.data
-  console.log(homeData)
-  console.log('challegeData:::', challengeData)
   return (
     <Wrapper>
       <ColorWrapper>

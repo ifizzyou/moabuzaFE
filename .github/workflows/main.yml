@@ -32,6 +32,17 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        
+      - name: Setting .env
+        run: |
+          echo "REACT_APP_BASE_URL=${{ secrets.REACT_APP_BASE_URL }}" >> .env
+          echo "REACT_APP_REDIRECT_URI=${{ secrets.REACT_APP_REDIRECT_URI }}" >> .env
+          echo "REACT_APP_SERVER_URL=${{ secrets.REACT_APP_SERVER_URL }}" >> .env
+          echo "REACT_APP_CLIENT_ID=${{ secrets.REACT_APP_CLIENT_ID }}" >> .env
+          echo "REACT_APP_FIREBASE_APIKEY=${{ secrets.REACT_APP_FIREBASE_APIKEY }}" >> .env
+          echo "REACT_APP_VAPID_KEY=${{ secrets.REACT_APP_VAPID_KEY }}" >> .env
+          echo "REACT_APP_NODE_ENV=${{ secrets.REACT_APP_NODE_ENV }}" >> .env
+          cat .env
 
       - name: Build
         run: npm run build

@@ -42,185 +42,10 @@ const GroupBuzaDetail = lazy(() => import('./GroupBuzaDetail'))
 
 const UserInfo = lazy(() => import('./UserInfo'))
 const OnBoarding = lazy(() => import('./OnBoarding'))
+const ServiceInfo = lazy(() => import('./ServiceInfo'))
+const Tutorial = lazy(() => import('./Tutorial'))
 
 function App() {
-  // let swRegist = null
-
-  // const [Token, setToken] = useState(null)
-
-  // getToken(messaging, {
-  //   vapidKey: process.env.REACT_APP_VAPID_KEY,
-
-  // }).then((token) => {
-  //   console.log('token', token)
-  //   setToken(token)
-  //   swRegist = messaging.swRegistration
-  // })
-
-  // // async 를 사용학 위해 메서드로 따로 분리함
-  // const firebaseMessageToken = async () => {
-  //   const token = await getToken()
-  //   console.log('token === ', token)
-  // }
-  // // 추후 서버에 토큰을 저장하는 기능을 여기에 추가
-  // useEffect(() => {
-  //   firebaseMessageToken()
-  // }, [])
-
-  // importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js')
-
-  // importScripts(
-  //   'https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging-compat.js',
-  // )
-
-  // const config = {
-  //   apiKey: 'AIzaSyCGo8nqq7bA-zv87IqQNOS1y9xUJ2t4m1I',
-  //   authDomain: 'moabuza.firebaseapp.com',
-  //   projectId: 'moabuza',
-  //   storageBucket: 'moabuza.appspot.com',
-  //   messagingSenderId: '702007017171',
-  //   appId: '1:702007017171:web:3584da8cde95f03eedde26',
-  //   measurementId: 'G-3PZP7TQ54Y',
-  // }
-
-  // const firebaseApp = initializeApp(config)
-
-  // const messaging = getMessaging(firebaseApp)
-
-  // // 토큰값 얻기
-  // getToken(messaging, {
-  //   vapidKey: process.env.REACT_APP_VAPID_KEY,
-  // })
-  //   .then((currentToken) => {
-  //     if (currentToken) {
-  //       // Send the token to your server and update the UI if necessary
-  //       // ...
-  //       console.log('FCM User Token 최초 수신:::', currentToken)
-  //       setItem('fcmToken', currentToken)
-  //     } else {
-  //       // Show permission request UI
-  //       console.log(
-  //         'No registration token available. Request permission to generate one.',
-  //       )
-  //       // ...
-  //     }
-  //     return currentToken
-  //   })
-  //   .catch((err) => {
-  //     console.log('An error occurred while retrieving token. ', err)
-  //     // ...
-  //   })
-
-  // onMessage(messaging, (payload) => {
-  //   console.log('Message received. ', payload)
-  //   // ...
-  // })
-
-  // const firebaseMessaging = getMessaging(firebaseApp)
-  // getToken(firebaseMessaging, {
-  //   vapidKey: process.env.REACT_APP_VAPID_KEY,
-  // })
-  //   .then((currentToken) => {
-  //     console.log(currentToken)
-  //     if (currentToken) {
-  //       apis.pushAlarm(currentToken).then((response) => {
-  //         console.log(response)
-  //       })
-  //     } else {
-  //       console.log('not alarm registered')
-  //     }
-  //   })
-  //   .catch((error) => console.log(error))
-
-  // onMessage(firebaseMessaging, (payload) => {
-  //   console.log('foregroundMessage')
-  //   console.log('여기 되면 대박', payload)
-
-  //   const date = new Date()
-  //   const now = date.getTime()
-
-  //   if (payload) {
-  //     dispatch(
-  //       addNotificationList({
-  //         title: payload.notification.title,
-  //         body: payload.notification.body,
-  //         createdAt: now,
-  //       }),
-  //     )
-  //   }
-  // })
-  // Initialize the Firebase app in the service worker by passing the generated config
-
-  // importScripts(
-  //   'https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js',
-  // )
-  // importScripts(
-  //   'https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging-compat.js',
-  // )
-
-  const firebaseConfig = {
-    apiKey: 'AIzaSyD0u9HX41rjh3MnO93isinkSuxzLEH22GI',
-    authDomain: 'boiler-e3497.firebaseapp.com',
-    projectId: 'boiler-e3497',
-    storageBucket: 'boiler-e3497.appspot.com',
-    messagingSenderId: '128639882477',
-    appId: '1:128639882477:web:4e0c086f572ce6b9a468e4',
-  }
-  initializeApp(firebaseConfig)
-
-  // const fbase = !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app()
-
-  // Retrieve firebase messaging
-  const messaging = getMessaging()
-
-  // messaging.onBackgroundMessage((payload) => {
-  //   console.log('Received background message ', payload)
-
-  //   const notificationTitle = payload.notification.title
-  //   const notificationOptions = {
-  //     body: payload.notification.body,
-  //   }
-
-  //   self.registration.showNotification(notificationTitle, notificationOptions)
-  // })
-
-  // 토큰값 얻기
-  getToken(messaging, {
-    vapidKey: process.env.REACT_APP_VAPID_KEY,
-  })
-    .then((currentToken) => {
-      if (currentToken) {
-        // Send the token to your server and update the UI if necessary
-        // ...
-        console.log('FCM User Token 최초 수신:::', currentToken)
-        setItem('fcmToken', currentToken)
-      } else {
-        // Show permission request UI
-        console.log(
-          'No registration token available. Request permission to generate one.',
-        )
-        // ...
-      }
-      return currentToken
-    })
-    .catch((err) => {
-      console.log('An error occurred while retrieving token. ', err)
-      // ...
-    })
-
-  // // Notification.requestPermission().then((permission) => {
-  // //   if (permission === 'granted') {
-  // //     console.log('Notification permission granted.')
-  // //   } else {
-  // //     console.log('Unable to get permission to notify.')
-  // //   }
-  // // })
-
-  // 포그라운드 메시지 수신
-  onMessage(messaging, (payload) => {
-    console.log('Message received. ', payload)
-    // ...
-  })
 
   return (
     <ErrorBoundary FallbackComponent={KakaoLogin}>
@@ -257,6 +82,8 @@ function App() {
             <Route path="/groupbuzadetail" element={<GroupBuzaDetail />} />
             <Route path="/user/kakao/callback/*" element={<UserInfo />} />
             <Route path="/onboarding" element={<OnBoarding />} />
+            <Route path="/serviceinfo" element={<ServiceInfo />} />
+            <Route path="/tutorial" element={<Tutorial />} />
             <Route path="/loading" element={<Loading />} />
           </Routes>
         </MainDiv>

@@ -17,7 +17,6 @@ function GroupBuzaCreate() {
   const navigate = useNavigate()
   const [datalist, setDatalist] = useState([])
   const { data: friendsList, isLoading } = useFriendData(navigate)
-
   const [selectFriends, setSelectFriends] = useState([])
   useEffect(() => {
     if (friendsList) {
@@ -53,7 +52,6 @@ function GroupBuzaCreate() {
         friendNickname: selectFriendNickName,
       },
     }).then(
-      (res) => console.log('groupCreate', res),
       Swal.fire({
         title: '입력 완료!',
         text: '시작이 반!!',

@@ -112,7 +112,7 @@ function AlertsFriend() {
             return (
               <>
                 {d.alarmDetailType === 'request' && (
-                  <AlertList>
+                  <AlertList key={Date.now()}>
                     <div style={{ display: 'flex', justifyContent: 'center' }}>
                       <AlertCharacter src={Inviting} />
                       <AlertTextDiv style={{ marginLeft: '8px' }}>

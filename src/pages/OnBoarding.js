@@ -22,7 +22,7 @@ function OnBoarding() {
   const navigate = useNavigate()
   return (
     <Wrapper>
-      <Carousel>
+      <Carousel showThumbs={false}>
         <div>
           <TextDiv>
             <TextArea>
@@ -40,14 +40,7 @@ function OnBoarding() {
           <JumpButton
             type="button"
             onClick={() => {
-              Swal.fire({
-                title: '환영합니다!',
-                text: '이제부터 열심히 모아부자!',
-              })
-                .then((result) => {
-                  navigate('/')
-                })
-                .catch((err) => console.log(err))
+              navigate('/tutorial')
             }}
             boarderRadius="8px"
             width="328px"
@@ -75,14 +68,7 @@ function OnBoarding() {
           <JumpButton
             type="button"
             onClick={() => {
-              Swal.fire({
-                title: '환영합니다!',
-                text: '이제부터 열심히 모아부자!',
-              })
-                .then((result) => {
-                  navigate('/')
-                })
-                .catch((err) => console.log(err))
+              navigate('/tutorial')
             }}
             boarderRadius="8px"
             width="328px"
@@ -110,14 +96,7 @@ function OnBoarding() {
           <JumpButton
             type="button"
             onClick={() => {
-              Swal.fire({
-                title: '환영합니다!',
-                text: '이제부터 열심히 모아부자!',
-              })
-                .then((result) => {
-                  navigate('/')
-                })
-                .catch((err) => console.log(err))
+              navigate('/tutorial')
             }}
             boarderRadius="8px"
             width="328px"
@@ -145,14 +124,7 @@ function OnBoarding() {
           <JumpButton
             type="button"
             onClick={() => {
-              Swal.fire({
-                title: '환영합니다!',
-                text: '이제부터 열심히 모아부자!',
-              })
-                .then((result) => {
-                  navigate('/')
-                })
-                .catch((err) => console.log(err))
+              navigate('/tutorial')
             }}
             boarderRadius="8px"
             width="328px"
@@ -180,14 +152,7 @@ function OnBoarding() {
           <JumpButton
             type="button"
             onClick={() => {
-              Swal.fire({
-                title: '환영합니다!',
-                text: '이제부터 열심히 모아부자!',
-              })
-                .then((result) => {
-                  navigate('/')
-                })
-                .catch((err) => console.log(err))
+              navigate('/tutorial')
             }}
             boarderRadius="8px"
             width="328px"

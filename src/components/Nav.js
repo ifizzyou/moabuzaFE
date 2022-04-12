@@ -18,7 +18,6 @@ import { onedayBuzaDate } from '../recoil/setDateToday'
 
 function NavBar() {
   const location = useLocation()
-  console.log('로케이션', location)
 
   if (window.location.pathname === '/login') return null
 
@@ -32,7 +31,6 @@ function NavBar() {
         style={({ isActive }) => ({
           textDecoration: 'none',
           color: isActive ? '#4675F0' : '#D1D5DF',
-          // fontWeight: isActive ? '800' : '400',
         })}
       >
         <Component style={{ marginTop: '2px' }}>
@@ -51,9 +49,7 @@ function NavBar() {
         style={({ isActive }) => ({
           textDecoration: 'none',
           color: isActive ? '#4675F0' : '#D1D5DF',
-          // fontWeight: isActive ? '800' : '400',
         })}
-        // state={time:Date.now()}
       >
         <Component style={{ marginTop: '2px' }}>
           {location.pathname === '/onedaybuza' ? (
@@ -67,7 +63,6 @@ function NavBar() {
               <MenuText>하루부자</MenuText>
             </>
           )}
-          {/* <Pay style={{ width: '24px', height: '24px' }} /> */}
         </Component>
       </NavLink>
       <NavLink
@@ -98,7 +93,6 @@ function NavBar() {
         style={({ isActive }) => ({
           textDecoration: 'none',
           color: isActive ? '#4675F0' : '#D1D5DF',
-          // fontWeight: isActive ? '800' : '400',
         })}
       >
         <Component>
@@ -120,7 +114,6 @@ function NavBar() {
         style={({ isActive }) => ({
           textDecoration: 'none',
           color: isActive ? '#4675F0' : '#D1D5DF',
-          // fontWeight: isActive ? '800' : '400',
         })}
       >
         <Component>

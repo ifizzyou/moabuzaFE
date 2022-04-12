@@ -4,12 +4,14 @@ import { NavLink } from 'react-router-dom'
 import Slider from 'react-slick'
 import Swal from 'sweetalert2'
 import { isMobile } from 'react-device-detect'
+import { useNavigate } from 'react-router'
 import { ReactComponent as Friend } from '../assets/icons/menu/friend.svg'
 import { ReactComponent as Rightarr } from '../assets/icons/arrow/rightarr.svg'
 import { ReactComponent as Backarr } from '../assets/icons/arrow/backarr.svg'
 import { ReactComponent as Edit } from '../assets/icons/settings/edit1.svg'
 import { ReactComponent as Logout } from '../assets/icons/settings/logout.svg'
 import { ReactComponent as Review } from '../assets/icons/settings/review.svg'
+import { ReactComponent as Service } from '../assets/icons/menu/service_icon.svg'
 import BugReport from '../assets/menu/moabuza-bugreport.png'
 import SlideReview from '../assets/menu/moabuza-review.png'
 import 'slick-carousel/slick/slick.css'
@@ -20,6 +22,7 @@ import { setMoveToLoginPage } from '../utils/setMoveToLoginPage'
 import TitleText from '../components/Header/TitleText'
 
 function Menu() {
+  const navigate = useNavigate()
   const settings = {
     infinite: true,
     speed: 1000,
@@ -133,8 +136,32 @@ function Menu() {
         </TodayDiv>
       </NavLink>
 
-      <a href="https://forms.gle/N9y6NaMCAccQc2pF7">
+      <NavLink to="/serviceinfo">
         <TodayDiv style={{ top: isMobile ? 'calc(203px + 45vw)' : '363px' }}>
+          <TodayLogoDiv />
+          <Service
+            style={{
+              position: 'absolute',
+              width: '24px',
+              height: '24px',
+              left: '16px',
+              top: '18px',
+            }}
+          />
+          <TodayText>서비스 소개</TodayText>
+          <Rightarr
+            style={{
+              position: 'absolute',
+              width: '24px',
+              height: '24px',
+              right: '4.44%',
+              top: '18px',
+            }}
+          />
+        </TodayDiv>
+      </NavLink>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhtX5e7Xpzn2pwnLxtFYJecxKugNq0k0bzrgGKCXo32rcX3Q/viewform">
+        <TodayDiv style={{ top: isMobile ? 'calc(263px + 45vw)' : '423px' }}>
           <TodayLogoDiv />
           <Review
             style={{
@@ -145,7 +172,7 @@ function Menu() {
               top: '18px',
             }}
           />
-          <TodayText>리뷰</TodayText>
+          <TodayText>만족도 설문조사</TodayText>
           <Rightarr
             style={{
               position: 'absolute',
@@ -157,9 +184,10 @@ function Menu() {
           />
         </TodayDiv>
       </a>
+
       <TodayDiv
         onClick={() => logout()}
-        style={{ top: isMobile ? 'calc(263px + 45vw)' : '423px' }}
+        style={{ top: isMobile ? 'calc(323px + 45vw)' : '483px' }}
       >
         <TodayLogoDiv />
         <Logout

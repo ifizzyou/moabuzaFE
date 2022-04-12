@@ -46,8 +46,8 @@ function ExampleCustomInput({ value, onClick }) {
 
 function OnedayBuza(state) {
   const location = useLocation()
-  const { data: mainpageData } = useMainPageData(navigate)
   const navigate = useNavigate()
+  const { data: mainpageData } = useMainPageData(navigate)
   if (getItem('nowdate') === undefined) {
     setItem('nowdate', new Date())
   }
@@ -68,7 +68,6 @@ function OnedayBuza(state) {
 
   useEffect(() => {
     const selectDate = getDate(startDate)
-
     mutation.mutate(selectDate)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startDate])
@@ -102,7 +101,6 @@ function OnedayBuza(state) {
   }
   function nextday() {
     setItem('nowdate', new Date(startDate - 1 + 24 * 60 * 60 * 1000 + 1))
-
     setStartDate(new Date(startDate - 1 + 24 * 60 * 60 * 1000 + 1))
   }
   return (
@@ -118,7 +116,7 @@ function OnedayBuza(state) {
         <RightButton>입력</RightButton>
       </NavLink>
 
-      <TopLine />
+      {/* <TopLine /> */}
       <CalDiv>
         <LeftArrowDiv onClick={() => yesterday()}>
           <RightArrow
@@ -421,7 +419,7 @@ const TodayListBigDiv = styled.div`
   position: absolute;
 
   width: 100%;
-  height: 40%;
+  height: 38%;
   left: 0px;
   top: 0px;
   top: 51%;

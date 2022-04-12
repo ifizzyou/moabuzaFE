@@ -183,7 +183,7 @@ function AlertsChallenge() {
                   </AlertList>
                 )}
                 {d.alarmDetailType === 'accept' && (
-                  <AlertList>
+                  <AlertList key={Date.now()}>
                     <Flex>
                       <AlertCharacter
                         src={InviteAccept}
@@ -205,7 +205,7 @@ function AlertsChallenge() {
                 )}
 
                 {d.alarmDetailType === 'record' && (
-                  <AlertList>
+                  <AlertList key={Date.now()}>
                     <Flex>
                       <AlertCharacter
                         src={MoneyDeposit}
@@ -237,7 +237,7 @@ function AlertsChallenge() {
                 {(d.alarmDetailType === 'create' ||
                   d.alarmDetailType === 'success' ||
                   d.alarmDetailType === 'boom') && (
-                  <AlertList>
+                  <AlertList key={Date.now()}>
                     <Flex>
                       <AlertCharacter
                         src={
@@ -272,7 +272,7 @@ function AlertsChallenge() {
                 )}
 
                 {d.alarmDetailType === 'talju' && (
-                  <AlertList>
+                  <AlertList key={Date.now()}>
                     <Flex>
                       <AlertCharacter
                         src={GoalCancel}

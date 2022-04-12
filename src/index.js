@@ -13,35 +13,6 @@ import reportWebVitals from './reportWebVitals'
 import GlobalStyle from './styles/GlobalStyle'
 
 const queryClient = new QueryClient()
-// if ('serviceWorker' in navigator) {
-//   window.addEventListener('load', function () {
-//     navigator.serviceWorker.register('./service-worker.js')
-//     // .then(
-//     //   function (registration) {
-//     //     console.log('Worker registration successful', registration.scope);
-//     //   },
-//     //   function (err) {
-//     //     console.log('Worker registration failed', err);
-//     //   },
-//     // )
-//     // .catch(function (err) {
-//     //   console.log(err);
-//     // });
-//   })
-// } else {
-//   console.log('Service Worker is not supported by browser.')
-// }
-
-// if ('serviceWorker' in navigator) {
-//   navigator.serviceWorker
-//     .register('./firebase-messaging-sw.js')
-//     .then(function (registration) {
-//       console.log('Registration successful, scope is:', registration.scope)
-//     })
-//     .catch(function (err) {
-//       console.log('Service worker registration failed, error:', err)
-//     })
-// }
 
 ReactDOM.render(
   <RecoilRoot>

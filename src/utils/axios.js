@@ -24,7 +24,6 @@ import {
 
 export const instance = axios.create({
   baseURL: `${process.env.REACT_APP_SERVER_URL}`,
-  // baseURL: 'https://6b0c50c6-f658-42ea-80c0-f14d34966068.mock.pstmn.io',
   headers: {
     'content-type': 'application/json;charset=UTF-8',
     accept: 'application/json,',
@@ -32,54 +31,34 @@ export const instance = axios.create({
   },
 })
 
-let isTokenRefreshing = false
-const refreshSubscribers = []
-// console.log('refreshSubscribers', refreshSubscribers)
-
-const onTokenRefreshed = (accessToken) => {
-  refreshSubscribers.map((callback) => callback(accessToken))
-  // console.log('refreshSubscribers', refreshSubscribers)
-}
-
-const addRefreshSubscriber = (callback) => {
-  refreshSubscribers.push(callback)
-}
-
 instance.interceptors.request.use((config) => {
   const A_AUTH_TOKEN = getCookie('A-AUTH-TOKEN')
   const R_AUTH_TOKEN = getCookie('R-AUTH-TOKEN')
-  // console.log('A_AUTH_TOKEN : ', A_AUTH_TOKEN)
-  if (A_AUTH_TOKEN) {
+
+  if (A_AUTH_TOKEN && R_AUTH_TOKEN) {
     config.headers.common['A-AUTH-TOKEN'] = `Bearer ${A_AUTH_TOKEN}`
     config.headers.common['R-AUTH-TOKEN'] = `Bearer ${R_AUTH_TOKEN}`
-    // console.log('인터셉터 REQUEST CONFIG', config)
-    // config.headers.common['FB-TOKEN'] = `Bearer ${FB_TOKEN}`
   }
-  // config.headers['Access-Control-Allow-Origin'] = '*'
-  // config.headers['Access-Control-Allow-Credentials'] = true
-  // config.headers.withCredentials = true
   return config
 })
 
 export const request = async ({ ...options }) => {
-  // console.log('req instance headers: ', instance.defaults.headers)
-
   const onSuccess = (response) => {
     return response
   }
   const onError = (error) => {
     console.log('error:::', error.response)
-    // optionaly catch errors and add additional logging here
     return error
   }
   return instance(options).then(onSuccess).catch(onError)
 }
 
+let isTokenRefreshing = false
+
 let token
 
 if (getItem('fcmtoken')) {
   token = getItem('fcmtoken')
-  console.log(getItem('fcmtoken'))
 } else {
   token = 'token'
 }
@@ -121,25 +100,17 @@ instance.interceptors.response.use(
   (response) => {
     return response
   },
-
   async (error) => {
     const {
       data: responseData,
       config: originalRequest,
       status: statusCode,
     } = error.response
-    console.log(
-      'ERR RESPONSED',
-      responseData,
-      responseData.message,
-      originalRequest,
-      statusCode,
-    )
+
     if (responseData.msg === 'Move to Login Page') {
       setMoveToLoginPage()
       return Promise.reject(error)
     }
-
     if (statusCode === UNAUTHORIZED && responseData.code === 1004) {
       if (!isTokenRefreshing) {
         isTokenRefreshing = true

@@ -1,4 +1,7 @@
 import {
+  BunnyFace,
+  TanniFace,
+  TongkiFace,
   BunnyGG,
   TongkiGG,
   TanniGG,
@@ -42,5 +45,19 @@ export function SetCharacter(hero, percent) {
       return TongkiStep02
     }
     return TongkiStep03
+  }
+}
+
+export function SetCharacterFace(hero) {
+  if (hero === 'bunny') {
+    return BunnyFace
+  }
+
+  if (hero === 'tanni') {
+    return TanniFace
+  }
+
+  if (hero === 'tongki') {
+    return TongkiFace
   }
 }

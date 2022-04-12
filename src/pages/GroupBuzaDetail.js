@@ -127,7 +127,7 @@ function GroupBuzaDetail() {
             }
           />
           <GoalAmount>
-            목표 금액 : {groupData.challengeGoalAmount} 원
+            목표 금액 : {groupData.groupGoalAmount.toLocaleString()} 원
           </GoalAmount>
           <ProgressBar
             completed={data ? data.data.groupNowPercent : 0}

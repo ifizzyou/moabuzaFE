@@ -33,6 +33,7 @@ import {
   BunnyStep02,
   BunnyStep01,
 } from '../assets/character'
+import { SetCharacter } from '../utils/setCharacter'
 import { setMoveToLoginPage } from '../utils/setMoveToLoginPage'
 
 // 홈에 있는 주석을 절대 삭제하지 말아주세요
@@ -124,27 +125,7 @@ function MainPage() {
           <>
             <ContentGoalName>{data?.data?.groupName}</ContentGoalName>
             <CharacterWrapper
-              src={
-                data.data.hero === 'bunny' && nowGroupPercent < 30
-                  ? BunnyStep01
-                  : data.data.hero === 'bunny' && nowGroupPercent < 60
-                  ? BunnyStep02
-                  : data.data.hero === 'bunny' && nowGroupPercent
-                  ? BunnyStep03
-                  : data.data.hero === 'tongki' && nowGroupPercent < 30
-                  ? TongkiStep01
-                  : data.data.hero === 'tongki' && nowGroupPercent < 60
-                  ? TongkiStep02
-                  : data.data.hero === 'tongki' && nowGroupPercent
-                  ? TongkiStep03
-                  : data.data.hero === 'tanni' && nowGroupPercent < 30
-                  ? TanniStep01
-                  : data.data.hero === 'tanni' && nowGroupPercent < 60
-                  ? TanniStep02
-                  : data.data.hero === 'tanni' && nowGroupPercent
-                  ? TanniStep03
-                  : null
-              }
+              src={SetCharacter(data.data.hero, nowGroupPercent)}
             />
             <ContentUnderDiv>
               <ContentWon>
@@ -180,27 +161,7 @@ function MainPage() {
           <div>
             <ContentGoalName>{data?.data?.challengeName}</ContentGoalName>
             <CharacterWrapper
-              src={
-                data.data.hero === 'bunny' && nowChallengePercent < 30
-                  ? BunnyStep01
-                  : data.data.hero === 'bunny' && nowChallengePercent < 60
-                  ? BunnyStep02
-                  : data.data.hero === 'bunny' && nowChallengePercent
-                  ? BunnyStep03
-                  : data.data.hero === 'tongki' && nowChallengePercent < 30
-                  ? TongkiStep01
-                  : data.data.hero === 'tongki' && nowChallengePercent < 60
-                  ? TongkiStep02
-                  : data.data.hero === 'tongki' && nowChallengePercent
-                  ? TongkiStep03
-                  : data.data.hero === 'tanni' && nowChallengePercent < 30
-                  ? TanniStep01
-                  : data.data.hero === 'tanni' && nowChallengePercent < 60
-                  ? TanniStep02
-                  : data.data.hero === 'tanni' && nowChallengePercent
-                  ? TanniStep03
-                  : null
-              }
+              src={SetCharacter(data.data.hero, nowChallengePercent)}
             />
             <ContentUnderDiv>
               <ContentWon>
